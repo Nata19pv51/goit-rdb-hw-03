@@ -1,0 +1,34 @@
+use bd_lesson3;
+
+-- 1
+SELECT *
+FROM products;
+
+SELECT name, phone 
+FROM shippers;
+
+-- 2
+SELECT 
+	ROUND(AVG(price), 2) as avg_price,
+	MAX(price) as max_price,
+    	MIN(price) as min_price
+FROM products;
+
+-- 3
+SELECT DISTINCT category_id, price
+FROM products
+ORDER BY price DESC
+LIMIT 10;
+
+-- 4
+SELECT COUNT(*) as count_products
+FROM products
+WHERE price >= 20 and price <= 100;
+
+-- 5
+SELECT
+	supplier_id,
+	COUNT(*) as count_products,
+    	ROUND(AVG(price), 2) as avg_price
+FROM products
+GROUP BY supplier_id;
